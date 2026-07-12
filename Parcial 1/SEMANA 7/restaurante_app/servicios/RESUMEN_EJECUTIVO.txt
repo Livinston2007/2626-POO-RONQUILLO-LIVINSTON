@@ -1,0 +1,15 @@
+RESUMEN EJECUTIVO - CAPA DE SERVICIOS
+====================================
+
+La carpeta servicios contiene la clase Restaurante, que es el corazón
+del sistema de administración.
+
+Responsabilidades principales:
+1. Administrar listas de productos y clientes.
+2. Validar registros duplicados.
+3. Proveer métodos para registrar, listar y buscar.
+4. Cargar datos de ejemplo (precargar_ejemplos).
+
+Esta capa se comunica directamente con los modelos (producto.py y cliente.py)
+y es invocada desde main.py mediante el menú interactivo.
+

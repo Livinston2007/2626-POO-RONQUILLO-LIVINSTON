@@ -1,0 +1,20 @@
+Instrucciones rápidas para ejecutar el sistema:
+
+1. Abrir PowerShell y navegar a:
+   cd 'C:\Users\DELL\PycharmProjects\2626-POO-RONQUILLO-LIVINSTON\Parcial 1\SEMANA 7\restaurante_app'
+
+2. Ejecutar:
+   python main.py
+
+3. Se verá un menú interactivo con opciones para:
+   - Registrar productos
+   - Listar productos
+   - Buscar productos
+   - Registrar clientes
+   - Listar clientes
+   - Buscar clientes
+   - Salir
+
+4. Ya hay datos de ejemplo precargados (Ceviche, Lomo Saltado, Inca Kola, Ana Pérez, Carlos Ruiz).
+
+*** End Patch

@@ -1,0 +1,22 @@
+Archivos principales creados en la entrega SEMANA 7:
+
+NÚCLEO DE LA APLICACIÓN:
+- restaurante_app/main.py
+- restaurante_app/modelos/__init__.py
+- restaurante_app/modelos/producto.py
+- restaurante_app/modelos/cliente.py
+- restaurante_app/servicios/__init__.py
+- restaurante_app/servicios/restaurante.py
+
+DOCUMENTACIÓN (dentro de servicios/):
+- GUIA_DIDACTICA.md
+- RESUMEN_EJECUTIVO.txt
+- EJEMPLO_INTERACTIVO.md
+- ESTRUCTURA_FINAL.md
+- INICIO_RAPIDO.txt
+- ARCHIVOS_CREADOS.txt
+
+PRUEBAS:
+- tests/test_restaurante.py
+- tests/__init__.py
+
