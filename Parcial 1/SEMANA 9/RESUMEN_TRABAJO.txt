@@ -1,0 +1,364 @@
+RESUMEN DE TRABAJO - SEMANA 9: ESTRUCTURAS DE DATOS EN PYTHON
+================================================================
+
+PROYECTO: Sistema de Restaurante - restaurante_app
+SEMANA: 9
+AUTOR: Ronquillo Livinston
+ESTADO: ✓ COMPLETADO
+
+================================================================================
+OBJETIVO CUMPLIDO
+================================================================================
+
+Continuar desarrollando el proyecto restaurante_app incorporando las principales
+estructuras de datos de Python (lista, tupla, diccionario, conjunto) para 
+administrar información del sistema de forma integrada y funcional.
+
+================================================================================
+ESTRUCTURA DEL PROYECTO CREADO
+================================================================================
+
+SEMANA 9/restaurante_app/
+├── modelos/
+│   ├── __init__.py
+│   ├── producto.py          ← Clase Producto
+│   └── usuario.py           ← Clase Usuario (antes Cliente)
+├── servicios/
+│   ├── __init__.py
+│   └── restaurante.py       ← Servicio Restaurante (CRUD)
+├── main.py                  ← Menú interactivo
+├── test_sistema.py          ← Suite de pruebas
+├── demo.py                  ← Demostración interactiva
+└── README.md                ← Documentación completa
+
+================================================================================
+COMPONENTES IMPLEMENTADOS
+================================================================================
+
+1. MODELOS
+   • Producto.py
+     - Atributos: codigo, nombre, categoria, precio
+     - Método: mostrar_informacion()
+     - Anotaciones de tipos completas
+   
+   • Usuario.py (renombrado de Cliente)
+     - Atributos: identificacion, nombre, correo
+     - Método: mostrar_informacion()
+     - Anotaciones de tipos completas
+
+2. SERVICIOS
+   • Restaurante.py
+     MÉTODOS PARA PRODUCTOS:
+     ✓ registrar_producto(producto)
+     ✓ buscar_producto_por_codigo(codigo)
+     ✓ actualizar_producto(codigo, nombre, categoria, precio)
+     ✓ eliminar_producto(codigo)
+     ✓ listar_productos()
+     ✓ obtener_categorias_unicas() ← Retorna SET
+     ✓ contar_productos()
+     
+     MÉTODOS PARA USUARIOS:
+     ✓ registrar_usuario(usuario)
+     ✓ buscar_usuario_por_identificacion(identificacion)
+     ✓ listar_usuarios()
+     ✓ contar_usuarios()
+     
+     VALIDACIONES:
+     ✓ Previene códigos duplicados
+     ✓ Previene identificaciones duplicadas
+
+3. INTERFAZ (main.py)
+   FUNCIONES PARA PRODUCTOS:
+   ✓ registrar_producto() - Solicita datos y valida entrada
+   ✓ buscar_producto() - Busca por código
+   ✓ actualizar_producto() - Actualiza datos existentes
+   ✓ eliminar_producto() - Elimina con confirmación
+   ✓ listar_productos() - Muestra todos
+   ✓ mostrar_categorias() - Muestra categorías únicas
+   
+   FUNCIONES PARA USUARIOS:
+   ✓ registrar_usuario() - Registra nuevo usuario
+   ✓ listar_usuarios() - Muestra todos
+   
+   VALIDACIONES:
+   ✓ solicitar_numero() - Valida entrada numérica
+   ✓ Validación de campos no vacíos
+   ✓ Validación de precios no negativos
+   ✓ Manejo de excepciones
+
+================================================================================
+ESTRUCTURAS DE DATOS IMPLEMENTADAS
+================================================================================
+
+1. LISTA (list)
+   Ubicación: servicios/restaurante.py
+   Uso: self._productos: List[Producto] = []
+        self._usuarios: List[Usuario] = []
+   Propósito: Administrar colecciones dinámicas de objetos
+   Funcionalidad: Búsqueda, inserción, modificación, eliminación
+   
+2. TUPLA (tuple)
+   Ubicación: main.py, función menu()
+   Uso: opciones_tuple = ("1", "2", "3", "4", "5", "6", "7", "8", "9")
+   Propósito: Representar opciones estables e inmutables del menú
+   Funcionalidad: Validar que la opción ingresada sea válida
+   
+3. DICCIONARIO (dict)
+   Ubicación: main.py, función menu()
+   Uso: opciones_dict = {
+            "1": registrar_producto,
+            "2": buscar_producto,
+            ...
+        }
+   Propósito: Mapear opciones del menú a funciones correspondientes
+   Funcionalidad: Despachador de comandos elegante y mantenible
+   
+4. CONJUNTO (set)
+   Ubicación: servicios/restaurante.py
+   Uso: return {p.categoria for p in self._productos}
+   Propósito: Obtener categorías únicas sin duplicados
+   Funcionalidad: Implementación eficiente de "Mostrar Categorías"
+
+================================================================================
+VALIDACIONES IMPLEMENTADAS
+================================================================================
+
+✓ Campos obligatorios no vacíos
+✓ Códigos de productos únicos (previene duplicados)
+✓ Identificaciones de usuarios únicas (previene duplicados)
+✓ Precios no negativos
+✓ Entrada numérica válida para precios
+✓ Búsqueda antes de actualizar/eliminar
+✓ Confirmación antes de eliminar
+✓ Manejo de excepciones en operaciones críticas
+
+================================================================================
+PRUEBAS REALIZADAS
+================================================================================
+
+TEST 1: Registrar Productos ✓
+   - Registra 5 productos correctamente
+   - Valida códigos únicos
+   
+TEST 2: Validación de Códigos Duplicados ✓
+   - Intenta registrar producto con código duplicado
+   - Lanza excepción ValueError esperada
+   
+TEST 3: Búsqueda de Productos ✓
+   - Encuentra producto por código
+   - Retorna None si no existe
+   
+TEST 4: Listado de Productos ✓
+   - Muestra todos los productos
+   - Actualiza conteo correctamente
+   
+TEST 5: Categorías Únicas (SET) ✓
+   - Retorna conjunto sin duplicados
+   - Identifica 3 categorías diferentes
+   
+TEST 6: Actualización de Productos ✓
+   - Modifica datos de producto existente
+   - Retorna True/False según éxito
+   
+TEST 7: Eliminación de Productos ✓
+   - Elimina producto correctamente
+   - Actualiza conteo
+   
+TEST 8: Registrar Usuarios ✓
+   - Registra 3 usuarios correctamente
+   - Valida identificaciones únicas
+   
+TEST 9: Validación de Identificaciones Duplicadas ✓
+   - Intenta registrar con ID duplicada
+   - Lanza excepción ValueError esperada
+   
+TEST 10: Listado de Usuarios ✓
+   - Muestra todos los usuarios
+   - Actualiza conteo correctamente
+   
+TEST 11: Verificación de Estructuras de Datos ✓
+   - Lista: maneja 4+ productos y usuarios
+   - Tupla: contiene 9 opciones del menú
+   - Diccionario: mapea opciones a funciones
+   - Conjunto: contiene 2 categorías únicas
+
+RESULTADO: ✓ TODAS LAS PRUEBAS PASADAS EXITOSAMENTE
+
+================================================================================
+DEMO INTERACTIVA
+================================================================================
+
+Se ejecutó demo.py con los siguientes resultados:
+
+[PASO 1] 7 productos registrados exitosamente
+[PASO 2] Listado de todos los productos funciona
+[PASO 3] Búsqueda por código funciona correctamente
+[PASO 4] Actualización de precio funciona
+[PASO 5] Obtención de categorías únicas (SET) funciona
+[PASO 6] Eliminación de producto funciona
+[PASO 7] Registrado de 4 usuarios funciona
+[PASO 8] Listado de usuarios funciona
+[PASO 9] Validación de códigos duplicados funciona
+[PASO 10] Validación de IDs duplicadas funciona
+
+RESULTADO: ✓ DEMOSTRACIÓN COMPLETADA EXITOSAMENTE
+
+================================================================================
+ANOTACIONES DE TIPOS (TYPE HINTS)
+================================================================================
+
+Implementadas en:
+✓ Constructores de clases
+✓ Métodos de servicios
+✓ Funciones de validación
+✓ Funciones de manejo de menú
+
+Ejemplo:
+```python
+def actualizar_producto(self, codigo: str, nombre: str = None, 
+                      categoria: str = None, precio: float = None) -> bool:
+```
+
+================================================================================
+CARACTERÍSTICAS ESPECIALES
+================================================================================
+
+1. Arquitectura Modular
+   - Separación clara entre modelos, servicios e interfaz
+   - Fácil de mantener y extender
+   - Permite evolución futura hacia jerarquías de usuarios
+
+2. Mensajes de Feedback
+   - ✓ para operaciones exitosas
+   - ✗ para errores o búsquedas fallidas
+   - Información clara del estado del sistema
+
+3. Interfaz Amigable
+   - Menú con opciones numeradas
+   - Validación de entrada robusta
+   - Solicitud de confirmación antes de operaciones destructivas
+
+4. Ausencia de Dependencias Externas
+   - No requiere frameworks o bibliotecas adicionales
+   - Solo Python estándar 3.7+
+
+================================================================================
+DOCUMENTACIÓN
+================================================================================
+
+README.md incluye:
+✓ Descripción general del sistema
+✓ Mejoras principales de Semana 9
+✓ Explicación detallada de cada estructura de datos
+✓ Descripción de componentes
+✓ Menú interactivo de referencia
+✓ Flujo de ejecución
+✓ Lista de validaciones
+✓ Anotaciones de tipos
+✓ Separación de responsabilidades
+✓ Ejecución del programa
+✓ Ejemplos de uso
+✓ Restricciones respetadas
+✓ Evolución futura
+
+================================================================================
+RESTRICCIONES CUMPLIDAS
+================================================================================
+
+✓ Continuación del proyecto restaurante_app (no nuevo proyecto)
+✓ Estructura modular conservada (modelos/, servicios/, main.py, README.md)
+✓ Archivos __init__.py presentes en paquetes
+✓ Clase Producto implementada/conservada
+✓ Clase Usuario implementada (renombrada de Cliente)
+✓ Clase Restaurante implementada/mejorada
+✓ Lista para colecciones dinámicas
+✓ Tupla para opciones estables
+✓ Diccionario para relaciones clave-valor
+✓ Conjunto para valores únicos
+✓ CRUD completo para productos
+✓ Validaciones de duplicados
+✓ Menú interactivo implementado
+✓ Uso de input() para solicitud de datos
+✓ Validaciones y manejo de excepciones
+✓ Anotaciones de tipos implementadas
+✓ Nombres descriptivos y convenciones Python
+✓ Programa ejecutable desde main.py
+✓ README.md actualizado
+✓ Sin interfaces gráficas
+✓ Sin bases de datos
+✓ Sin un único archivo
+✓ Administración centralizada en servicios
+✓ Sin jerarquías avanzadas de usuarios
+✓ Sin funcionalidades de semanas posteriores
+✓ Sin nombres genéricos (x, dato, etc.)
+
+================================================================================
+ARCHIVOS CREADOS
+================================================================================
+
+1. restaurante_app/modelos/__init__.py
+   - Importaciones del paquete
+
+2. restaurante_app/modelos/producto.py
+   - Clase Producto con atributos y métodos
+
+3. restaurante_app/modelos/usuario.py
+   - Clase Usuario (antes Cliente) con atributos y métodos
+
+4. restaurante_app/servicios/__init__.py
+   - Importaciones del paquete
+
+5. restaurante_app/servicios/restaurante.py
+   - Servicio Restaurante con métodos CRUD
+   - Uso de list, dict, set para operaciones
+
+6. restaurante_app/main.py
+   - Menú interactivo completo
+   - Funciones de solicitud y validación
+   - Uso de tuple y dict para opciones
+
+7. restaurante_app/test_sistema.py
+   - Suite de 11 pruebas unitarias
+   - Verificación de todas las funcionalidades
+
+8. restaurante_app/demo.py
+   - Demostración interactiva del sistema
+   - 10 pasos de ejecución
+
+9. restaurante_app/README.md
+   - Documentación completa del proyecto
+
+================================================================================
+ESTADÍSTICAS
+================================================================================
+
+Líneas de código (sin comentarios ni blank lines):
+- producto.py: 18 líneas
+- usuario.py: 14 líneas
+- restaurante.py: 81 líneas
+- main.py: 262 líneas
+Total modelos + servicios: 113 líneas
+Total del proyecto: ~375 líneas
+
+Métodos implementados: 20+
+Validaciones: 8
+Estructuras de datos: 4 (lista, tupla, dict, set)
+Pruebas realizadas: 11
+Demostraciones: 10 pasos
+
+================================================================================
+CONCLUSIÓN
+================================================================================
+
+El proyecto restaurante_app Semana 9 ha sido completado exitosamente,
+incorporando todas las estructuras de datos de Python de forma funcional
+e integrada. El sistema administra productos y usuarios de un restaurante
+con operaciones CRUD completas, validaciones robustas, y una interfaz
+interactiva amigable.
+
+La arquitectura modular permite evolución futura hacia jerarquías de
+usuarios y funcionalidades más avanzadas sin modificar el código existente.
+
+✓ PROYECTO LISTO PARA ENTREGA
+
+================================================================================
