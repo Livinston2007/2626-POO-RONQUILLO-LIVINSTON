@@ -1,0 +1,14 @@
+[
+  {
+    "codigo": "DEMO001",
+    "nombre": "Pizza Margherita",
+    "categoria": "Pizzas",
+    "precio": 14.99
+  },
+  {
+    "codigo": "DEMO002",
+    "nombre": "Limonada",
+    "categoria": "Bebidas",
+    "precio": 3.5
+  }
+]
