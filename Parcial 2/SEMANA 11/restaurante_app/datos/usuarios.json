@@ -1,0 +1,17 @@
+[
+  {
+    "identificacion": "1001",
+    "nombre": "Laura Gomez",
+    "correo": "laura.gomez@email.com"
+  },
+  {
+    "identificacion": "1002",
+    "nombre": "Carlos Ruiz",
+    "correo": "carlos.ruiz@email.com"
+  },
+  {
+    "identificacion": "1003",
+    "nombre": "Ana Torres",
+    "correo": "ana.torres@email.com"
+  }
+]
