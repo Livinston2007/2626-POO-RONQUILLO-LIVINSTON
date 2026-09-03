@@ -36,7 +36,13 @@ class Restaurante:
         if categoria is not None:
             producto.categoria = categoria
         if precio is not None:
-            producto.precio = float(precio)
+            try:
+                precio_float = float(precio)
+                if precio_float < 0:
+                    raise ValueError("El precio no puede ser negativo")
+                producto.precio = precio_float
+            except ValueError as e:
+                raise ValueError(f"Precio inválido: {e}")
         
         return True
     

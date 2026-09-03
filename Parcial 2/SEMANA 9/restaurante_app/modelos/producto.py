@@ -5,6 +5,8 @@ class Producto:
     """Representa un producto del restaurante."""
     
     def __init__(self, codigo: str, nombre: str, categoria: str, precio: float) -> None:
+        if float(precio) < 0:
+            raise ValueError(f"El precio no puede ser negativo: {precio}")
         self.codigo: str = codigo
         self.nombre: str = nombre
         self.categoria: str = categoria

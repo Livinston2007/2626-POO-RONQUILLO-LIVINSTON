@@ -37,8 +37,8 @@ def registrar_producto(serv: Restaurante) -> None:
         print("Error: El precio no puede ser negativo.\n")
         return
     
-    producto = Producto(codigo, nombre, categoria, precio)
     try:
+        producto = Producto(codigo, nombre, categoria, precio)
         serv.registrar_producto(producto)
         print(f"✓ Producto '{nombre}' registrado correctamente.\n")
     except ValueError as e:
@@ -93,11 +93,14 @@ def actualizar_producto(serv: Restaurante) -> None:
             print("Error: Ingrese un precio válido.\n")
             return
     
-    if serv.actualizar_producto(codigo, nuevo_nombre if nuevo_nombre else None,
-                               nueva_categoria if nueva_categoria else None, nuevo_precio):
-        print("✓ Producto actualizado correctamente.\n")
-    else:
-        print("✗ Error al actualizar el producto.\n")
+    try:
+        if serv.actualizar_producto(codigo, nuevo_nombre if nuevo_nombre else None,
+                                    nueva_categoria if nueva_categoria else None, nuevo_precio):
+            print("✓ Producto actualizado correctamente.\n")
+        else:
+            print("✗ Error al actualizar el producto.\n")
+    except ValueError as e:
+        print(f"✗ Error: {e}\n")
 
 
 def eliminar_producto(serv: Restaurante) -> None:
@@ -258,3 +261,6 @@ def menu() -> None:
 
 if __name__ == "__main__":
     menu()
+
+
+
