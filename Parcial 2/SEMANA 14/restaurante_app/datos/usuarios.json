@@ -1,0 +1,17 @@
+[
+  {
+    "usuario": "admin",
+    "nombre": "Administrador",
+    "contrasena": "admin123"
+  },
+  {
+    "usuario": "ana",
+    "nombre": "Ana Torres",
+    "contrasena": "ana123"
+  },
+  {
+    "usuario": "carlos",
+    "nombre": "Carlos Ruiz",
+    "contrasena": "carlos123"
+  }
+]
